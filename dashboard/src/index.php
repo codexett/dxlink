@@ -51,6 +51,16 @@
     </div>
   </div>
 
+<div class="card" id="svx">
+  <div class="section-title">SVXLink Config</div>
+  <div class="row" style="margin-bottom:8px">
+    <button class="btn" id="cfgLoad">Load</button>
+    <button class="btn" id="cfgSave">Save</button>
+    <small id="cfgMsg"></small>
+  </div>
+  <textarea id="cfgText" style="width:100%;height:260px;border:1px solid #ccc;border-radius:8px;padding:8px;font-family:ui-monospace,Consolas,monospace"></textarea>
+</div>
+
   <div id="p-wifi" class="panel hide">
     <b>Wi-Fi</b>
     <div id="wstatus" style="margin:8px 0;"><small>Loading</small></div>
