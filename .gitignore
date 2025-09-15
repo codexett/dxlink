@@ -1,10 +1,22 @@
-﻿# DXlink
-dashboard/src/data/*.json
-# OS/editor
+﻿# Logs
+*.log
+
+# OS files
 .DS_Store
 Thumbs.db
-.vscode/
-.idea/
-# node/php future
+
+# Node / npm
 node_modules/
+npm-debug.log
+
+# Docker
+*.pid
+*.seed
+*.pid.lock
+
+# PHP / Composer
 vendor/
+composer.lock
+
+# Custom data (nu urcăm config-uri locale sau generate)
+dashboard/src/data/*
