@@ -1,0 +1,9 @@
+﻿services:
+  dashboard:
+    image: php:8.2-apache
+    container_name: dxlink-dashboard
+    ports:
+      - "8080:80"
+    volumes:
+      - ./dashboard/src:/var/www/html
+    restart: unless-stopped

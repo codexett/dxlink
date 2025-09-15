@@ -1,0 +1,10 @@
+﻿# DXlink
+dashboard/src/data/*.json
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+# node/php future
+node_modules/
+vendor/
