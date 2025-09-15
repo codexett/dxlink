@@ -13,6 +13,7 @@ npm-debug.log
 *.pid
 *.seed
 *.pid.lock
+docker-compose.override.yml
 
 # PHP / Composer
 vendor/
