@@ -1,5 +1,6 @@
 <?php
 header("Content-Type: application/json");
+
 $cfg = __DIR__ . "/../../data/svxlink.conf";
 $method = $_SERVER["REQUEST_METHOD"] ?? "GET";
 
@@ -15,10 +16,15 @@ if ($method === "GET") {
 
 if ($method === "POST") {
   $content = $_POST["content"] ?? "";
-  if ($content === "") { http_response_code(400); echo json_encode(["ok"=>false,"error"=>"empty"]); exit; }
+  if ($content === "") {
+    http_response_code(400);
+    echo json_encode(["ok"=>false,"error"=>"empty"]);
+    exit;
+  }
   file_put_contents($cfg, $content);
   echo json_encode(["ok"=>true]);
   exit;
 }
 
-http_response_code(405); echo json_encode(["ok"=>false,"error"=>"method"]);
+http_response_code(405);
+echo json_encode(["ok"=>false,"error"=>"method"]);

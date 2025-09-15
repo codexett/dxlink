@@ -194,6 +194,45 @@
     document.getElementById('logStart').onclick=startLogs;
     document.getElementById('logStop').onclick=stopLogs;
     document.getElementById('logClear').onclick=()=>{ logbox.textContent=''; };
+// ===== SVX CONFIG (mock) =====
+const cfgText = document.getElementById('cfgText');
+const cfgMsg  = document.getElementById('cfgMsg');
+
+function cfgLoad(){
+  cfgMsg.textContent = 'Loading...';
+  fetch('api/svx/config.php')
+    .then(r=>r.json())
+    .then(j=>{
+      cfgText.value = j.content || '';
+      cfgMsg.textContent = 'Loaded.';
+    })
+    .catch(e=>{
+      cfgMsg.textContent = 'Error: ' + e;
+    });
+}
+
+function cfgSave(){
+  cfgMsg.textContent = 'Saving...';
+  const body = new URLSearchParams({content: cfgText.value}).toString();
+  fetch('api/svx/config.php', {
+    method: 'POST',
+    headers: {'Content-Type':'application/x-www-form-urlencoded'},
+    body
+  })
+    .then(r=>r.json())
+    .then(j=>{
+      cfgMsg.textContent = j.ok ? 'Saved.' : ('Error: ' + j.error);
+    })
+    .catch(e=>{
+      cfgMsg.textContent = 'Error: ' + e;
+    });
+}
+
+document.getElementById('cfgLoad').onclick = cfgLoad;
+document.getElementById('cfgSave').onclick = cfgSave;
+
+cfgLoad(); // auto-load la deschiderea paginii
+
   </script>
 </body>
 </html>
